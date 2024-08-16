@@ -1,0 +1,95 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>Medallero Español.md</title><style></style></head><body id="preview">
+<h1 class="code-line" data-line-start="0" data-line-end="1"><a id="Medallero_Espaol_0"></a>Medallero Español</h1>
+<h2 class="code-line" data-line-start="1" data-line-end="2"><a id="_Desde_el_2000_hasta_ahora__1"></a><em>Desde el 2000 hasta ahora</em></h2>
+<p class="has-line-data" data-line-start="3" data-line-end="4">Medallero Español es una base de datos en el que se pueden encontrar la cantidad de medallas y diplomas olímpicos obtenidos por los deportitas en los Juegos olímpicos desde Sidney 2000 hasta el presenta año París 2024.</p>
+<h2 class="code-line" data-line-start="5" data-line-end="6"><a id="Tech_5"></a>Tech</h2>
+<p class="has-line-data" data-line-start="6" data-line-end="7">Medallero Español utliza lo suguiente:</p>
+<ul>
+<li class="has-line-data" data-line-start="7" data-line-end="8">Node JS</li>
+<li class="has-line-data" data-line-start="8" data-line-end="10">MongoDB</li>
+</ul>
+<h2 class="code-line" data-line-start="10" data-line-end="11"><a id="Installation_10"></a>Installation</h2>
+<ol>
+<li class="has-line-data" data-line-start="11" data-line-end="13">Clonar el repositorio<br>
+<a href="https://github.com/ylearven/proyecto6.git">github.com/ylearven/proyecto6.git</a></li>
+<li class="has-line-data" data-line-start="13" data-line-end="16">Instala las dependecias<br>
+nodemon - express - mongoose - cors - dotenv</li>
+</ol>
+<h1 class="code-line" data-line-start="16" data-line-end="17"><a id="EndPoints_16"></a>EndPoints</h1>
+<h1 class="code-line" data-line-start="17" data-line-end="18"><a id="Medalleros_17"></a>Medalleros</h1>
+<ol>
+<li class="has-line-data" data-line-start="18" data-line-end="20">Obtener todos
+<ul>
+<li class="has-line-data" data-line-start="19" data-line-end="20">GET <code>/api/v1/medallero</code></li>
+</ul>
+</li>
+<li class="has-line-data" data-line-start="20" data-line-end="22">Obtener por ID
+<ul>
+<li class="has-line-data" data-line-start="21" data-line-end="22">GET <code>/api/v1/medallero/:id</code></li>
+</ul>
+</li>
+<li class="has-line-data" data-line-start="22" data-line-end="24">Obtener por medallas o diplima
+<ul>
+<li class="has-line-data" data-line-start="23" data-line-end="24">GET <code>/api/v1/medallero/oro/:oro</code></li>
+</ul>
+</li>
+<li class="has-line-data" data-line-start="24" data-line-end="26">Crear un nuevo medallero
+<ul>
+<li class="has-line-data" data-line-start="25" data-line-end="26">POST <code>/api/v1/medallero</code></li>
+</ul>
+</li>
+<li class="has-line-data" data-line-start="26" data-line-end="28">Actualizar uno existente
+<ul>
+<li class="has-line-data" data-line-start="27" data-line-end="28">PUT <code>/api/v1/medallero/:id</code></li>
+</ul>
+</li>
+<li class="has-line-data" data-line-start="28" data-line-end="31">Eliminar medallero
+<ul>
+<li class="has-line-data" data-line-start="29" data-line-end="31">DELETE <code>/api/v1/medallero/:id</code></li>
+</ul>
+</li>
+</ol>
+<h1 class="code-line" data-line-start="31" data-line-end="32"><a id="JJOO_31"></a>JJOO</h1>
+<ol>
+<li class="has-line-data" data-line-start="32" data-line-end="34">Obtener todos
+<ul>
+<li class="has-line-data" data-line-start="33" data-line-end="34">GET <code>/api/v1/jjoo</code></li>
+</ul>
+</li>
+<li class="has-line-data" data-line-start="34" data-line-end="36">Obtener por ID
+<ul>
+<li class="has-line-data" data-line-start="35" data-line-end="36">GET <code>/api/v1/jjoo/:id</code></li>
+</ul>
+</li>
+<li class="has-line-data" data-line-start="36" data-line-end="38">Obtener por número de atletas
+<ul>
+<li class="has-line-data" data-line-start="37" data-line-end="38">GET <code>/api/v1/jjoo/N_Atletas/:N_Atletas</code></li>
+</ul>
+</li>
+<li class="has-line-data" data-line-start="38" data-line-end="40">Crear un nuevo medallero
+<ul>
+<li class="has-line-data" data-line-start="39" data-line-end="40">POST <code>/api/v1/jjoo</code></li>
+</ul>
+</li>
+<li class="has-line-data" data-line-start="40" data-line-end="42">Actualizar uno existente
+<ul>
+<li class="has-line-data" data-line-start="41" data-line-end="42">PUT <code>/api/v1/jjoo/:id</code></li>
+</ul>
+</li>
+<li class="has-line-data" data-line-start="42" data-line-end="44">Eliminar medallero
+<ul>
+<li class="has-line-data" data-line-start="43" data-line-end="44">DELETE <code>/api/v1/jjoo/:id</code></li>
+</ul>
+</li>
+</ol>
+<h1 class="code-line" data-line-start="46" data-line-end="47"><a id="Modelo__JJOO_46"></a>Modelo - JJOO</h1>
+<ul>
+<li class="has-line-data" data-line-start="47" data-line-end="48">Nombre: <code>String</code> - Nombre del Pais oficiador</li>
+<li class="has-line-data" data-line-start="48" data-line-end="49">Imagen:<code>String</code> - URL logo de los JJOO</li>
+<li class="has-line-data" data-line-start="49" data-line-end="50">N_atletas: <code>Number</code> - Número de atletas de la delegación española en los jjoo</li>
+<li class="has-line-data" data-line-start="50" data-line-end="51">Oro: <code>Number</code>- Número de medallas de oro en los jjoo</li>
+<li class="has-line-data" data-line-start="51" data-line-end="52">Plata: <code>Number</code>- Número de medallas de plata en los jjoo</li>
+<li class="has-line-data" data-line-start="52" data-line-end="53">Bronce: <code>Number</code>- Número de medallas de bronce en los jjoo</li>
+<li class="has-line-data" data-line-start="53" data-line-end="54">Diploma: <code>Number</code>- Número de diplomas en los jjoo</li>
+</ul>
+</body></html>

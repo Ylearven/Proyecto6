@@ -31,25 +31,25 @@ img {
   min-height: 300px;
 }
 
-.jjooPais.caja1 {
+.jjooPais-caja1 {
   background-color: rgba(215, 196, 120, 0.5);
 }
-.jjooPais.caja2 {
+.jjooPais-caja2 {
   background-color: rgba(0, 30, 97, 0.5);
 }
-.jjooPais.caja3 {
+.jjooPais-caja3 {
   background-color: rgba(1, 172, 78, 0.5);
 }
-.jjooPais.caja4 {
+.jjooPais-caja4 {
   background-color: rgba(224, 45, 127, 0.5);
 }
-.jjooPais.caja5 {
+.jjooPais-caja5 {
   background-color: rgba(254, 0, 1, 0.5);
 }
-.jjooPais.caja6 {
+.jjooPais-caja6 {
   background-color: rgba(44, 104, 174, 0.5);
 }
-.jjooPais.caja7 {
+.jjooPais-caja7 {
   background-color: rgba(254, 197, 49, 0.5);
 }
 .MasInfo {

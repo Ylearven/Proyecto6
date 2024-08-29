@@ -61,6 +61,19 @@ const deletejjoo = async (req, res, next) => {
     return res.status(400).json('Error en la solicitud delete')
   }
 }
+const Updatejjoo = async (req, res, next) => {
+  try {
+    const { id } = req.params
+    const newjjoo = new JJOO(req.body)
+    newjjoo._id = id
+    const jjooUpdated = await JJOO.findByIdAndUpdate(id, newjjoo, {
+      new: true
+    })
+    return res.status(200).json(jjooUpdated)
+  } catch (error) {
+    return res.status(400).json('error')
+  }
+}
 
 module.exports = {
   getjjoo,
@@ -68,5 +81,6 @@ module.exports = {
   getjjooByN_athles,
   postjjoo,
   putjjoo,
-  deletejjoo
+  deletejjoo,
+  Updatejjoo
 }

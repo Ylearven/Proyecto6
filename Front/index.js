@@ -9,10 +9,10 @@ document.addEventListener('DOMContentLoaded', () => {
         for (const jjoos of jjoo.Medallero) {
           MasInfo.innerHTML += `
           <div class=jjoos>
-        <h3>"Oro:${jjoos.Oro}</h3>
-         <h3>"Plata:${jjoos.Plata}</h3>
-          <h3>"Bronce:${jjoos.Bronce}</h3>
-           <h3>"Diplomas:${jjoos.Diploma}</h3>
+        <h3>Oro: ${jjoos.Oro}</h3>
+         <h3>Plata: ${jjoos.Plata}</h3>
+          <h3>Bronce: ${jjoos.Bronce}</h3>
+           <h3>Diplomas: ${jjoos.Diploma}</h3>
       </div>`
         }
         MasInfo.classList.add('showInfo')

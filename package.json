@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "dev": "nodemon index.js"
+    "dev": "nodemon index.js",
+    "seedjjoo": " node ./src/utils/seeds/jjoo.seed.js",
+    "seedMedallero": " node ./src/utils/seeds/Medallero.seed.js"
   },
   "keywords": [],
   "author": "",

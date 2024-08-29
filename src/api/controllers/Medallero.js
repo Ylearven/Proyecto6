@@ -68,10 +68,8 @@ const postmedallero = async (req, res, next) => {
 const putmedallero = async (req, res, next) => {
   try {
     const { id } = req.params
-    /*  const oldjjoo = await JJOO.findById(id) */
     const newmedallero = new Medallero(req.body)
     newmedallero._id = id
-    /*  newjjoo.medallero = [...oldjjoo.medallero, ...req.body.medallero] */
     const medalleroUpdated = await Medallero.findByIdAndUpdate(
       id,
       newmedallero,
@@ -94,6 +92,23 @@ const deletemedallero = async (req, res, next) => {
     return res.status(400).json('Error en la solicitud delete')
   }
 }
+const UpdateMedallero = async (req, res, next) => {
+  try {
+    const { id } = req.params
+    const newmedallero = new Medallero(req.body)
+    newmedallero._id = id
+    const MedalleroUpdated = await Medallero.findByIdAndUpdate(
+      id,
+      newmedallero,
+      {
+        new: true
+      }
+    )
+    return res.status(200).json(MedalleroUpdated)
+  } catch (error) {
+    return res.status(400).json('error')
+  }
+}
 
 module.exports = {
   getmedallero,
@@ -104,5 +119,6 @@ module.exports = {
   getmedalleroByDiploma,
   postmedallero,
   putmedallero,
-  deletemedallero
+  deletemedallero,
+  UpdateMedallero
 }

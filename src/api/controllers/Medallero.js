@@ -58,6 +58,16 @@ const getmedalleroByDiploma = async (req, res, next) => {
 }
 const postmedallero = async (req, res, next) => {
   try {
+    const { Oro, Plata, Bronce, Diploma } = req.body
+    const medalleroExiste = await Medallero.findOne({
+      Oro,
+      Plata,
+      Bronce,
+      Diploma
+    })
+    if (medalleroExiste) {
+      return res.status(400).json('Ya existe el medallero')
+    }
     const newmedallero = new Medallero(req.body)
     const medalleroSaved = await newmedallero.save()
     return res.status(201).json(medalleroSaved)
@@ -68,11 +78,23 @@ const postmedallero = async (req, res, next) => {
 const putmedallero = async (req, res, next) => {
   try {
     const { id } = req.params
-    const newmedallero = new Medallero(req.body)
-    newmedallero._id = id
+    const { Oro, Plata, Bronce, Diploma } = req.body
+    const medalleroExiste = await Medallero.findOne({
+      _id: { $ne: id },
+      Oro,
+      Plata,
+      Bronce,
+      Diploma
+    })
+    if (medalleroExiste) {
+      return res.status(400).json('Ya existe otro medallero con estos datos')
+    }
+    /*  const newmedallero = new Medallero(req.body)
+    newmedallero._id = id */
     const medalleroUpdated = await Medallero.findByIdAndUpdate(
       id,
-      newmedallero,
+      /*     newmedallero, */
+      { $set: req.body },
       {
         new: true
       }
@@ -95,18 +117,30 @@ const deletemedallero = async (req, res, next) => {
 const UpdateMedallero = async (req, res, next) => {
   try {
     const { id } = req.params
-    const newmedallero = new Medallero(req.body)
-    newmedallero._id = id
+    const { Oro, Plata, Bronce, Diploma } = req.body
+    const medalleroExiste = await Medallero.findOne({
+      _id: { $ne: id },
+      Oro,
+      Plata,
+      Bronce,
+      Diploma
+    })
+    if (medalleroExiste) {
+      return res.status(400).json('Ya existe un medallero con esos datos')
+    }
+    /* const newmedallero = new Medallero(req.body)
+    newmedallero._id = id */
     const MedalleroUpdated = await Medallero.findByIdAndUpdate(
       id,
-      newmedallero,
+      /*  newmedallero, */
+      { $set: req.body },
       {
         new: true
       }
     )
     return res.status(200).json(MedalleroUpdated)
   } catch (error) {
-    return res.status(400).json('error')
+    return res.status(400).json('Error en la actualización completa')
   }
 }
 

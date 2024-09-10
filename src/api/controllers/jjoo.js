@@ -30,6 +30,11 @@ const getjjooByN_athles = async (req, res, next) => {
 }
 const postjjoo = async (req, res, next) => {
   try {
+    const { Nombre } = req.body
+    const jjooExiste = await JJOO.findOne({ Nombre })
+    if (jjooExiste) {
+      return res.status(400).json('Ya existe un JJPP con el mismo nombre')
+    }
     const newjjoo = new JJOO(req.body)
     const jjooSaved = await newjjoo.save()
     return res.status(201).json(jjooSaved)
@@ -41,6 +46,16 @@ const putjjoo = async (req, res, next) => {
   try {
     const { id } = req.params
     const updates = req.body
+    if (updates.Medallero && updates.Medallero.length) {
+      const jjoo = await JJOO.findById(id)
+      if (!jjoo) {
+        return res.status(404).json('JJOO no encontrado')
+      }
+      const medalleroSet = new Set(jjoo.Medallero.map(String))
+      updates.Medallero.forEach((item) => medalleroSet.add(String(item)))
+      updates.Medallero = Array.from(medalleroSet)
+    }
+
     const jjooUpdated = await JJOO.findByIdAndUpdate(
       id,
       { $set: updates },
@@ -66,6 +81,16 @@ const Updatejjoo = async (req, res, next) => {
     const { id } = req.params
     const newjjoo = new JJOO(req.body)
     newjjoo._id = id
+
+    if (newjjoo.Medallero && newjjoo.Medallero.length) {
+      const jjoo = await JJOO.findById(id)
+      if (!jjoo) {
+        return res.status(404).json('JJOO no encontrado')
+      }
+      const medalleroSet = new Set(jjoo.Medallero.map(String))
+      newjjoo.Medallero.forEach((item) => medalleroSet.add(String(item)))
+      newjjoo.Medallero = Array.from(medalleroSet)
+    }
     const jjooUpdated = await JJOO.findByIdAndUpdate(id, newjjoo, {
       new: true
     })

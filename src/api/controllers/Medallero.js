@@ -89,11 +89,8 @@ const putmedallero = async (req, res, next) => {
     if (medalleroExiste) {
       return res.status(400).json('Ya existe otro medallero con estos datos')
     }
-    /*  const newmedallero = new Medallero(req.body)
-    newmedallero._id = id */
     const medalleroUpdated = await Medallero.findByIdAndUpdate(
       id,
-      /*     newmedallero, */
       { $set: req.body },
       {
         new: true
@@ -128,11 +125,8 @@ const UpdateMedallero = async (req, res, next) => {
     if (medalleroExiste) {
       return res.status(400).json('Ya existe un medallero con esos datos')
     }
-    /* const newmedallero = new Medallero(req.body)
-    newmedallero._id = id */
     const MedalleroUpdated = await Medallero.findByIdAndUpdate(
       id,
-      /*  newmedallero, */
       { $set: req.body },
       {
         new: true
